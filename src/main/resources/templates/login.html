@@ -1,11 +1,11 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:layout="http://www.w3.org/1999/xhtml"
       layout:decorate="~{fragments/main_layout}"
       xmlns:th="https://www.thymeleaf.org">
 
 <div layout:fragment="content" class="container">
     <h1>Login</h1>
-    <form action="#" th:action="@{/login}" method="POST">
+    <form th:action="@{/login}" method="POST">
         <div class="form-group">
             <label for="inputId">Id</label>
             <input type="input" class="form-control" name="id" id="inputId">

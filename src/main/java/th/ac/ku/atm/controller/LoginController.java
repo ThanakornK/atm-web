@@ -12,6 +12,7 @@ import th.ac.ku.atm.service.CustomerService;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
+
     private CustomerService customerService;
 
     public LoginController(CustomerService customerService) {
@@ -25,14 +26,11 @@ public class LoginController {
 
     @PostMapping
     public String login(@ModelAttribute Customer customer, Model model) {
-        // 1. check to see if id and pin matched customer info
         Customer matchingCustomer = customerService.checkPin(customer);
-        // 2. if match, welcome customer
+
         if (matchingCustomer != null) {
-            model.addAttribute("greeting", "Welcome, " + matchingCustomer.getName());
-        }
-        else {
-            // 3. not match, display that customer info is incorrect
+            model.addAttribute("greeting","Welcome, " + matchingCustomer.getName());
+        } else {
             model.addAttribute("greeting", "Can't find customer");
         }
         return "home";

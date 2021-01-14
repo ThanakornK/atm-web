@@ -13,25 +13,16 @@ import th.ac.ku.atm.service.CustomerService;
 @RequestMapping("/customer")
 public class CustomerController {
 
-    // responsible for handle user request
-    //  step 1. update model for template
-    //  step 2. choose HTML template
-
     private CustomerService customerService;
 
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
     }
 
-    // handle user request
     @GetMapping
     public String getCustomerPage(Model model) {
-
-        //  step 1. update model for template
         model.addAttribute("allCustomers", customerService.getCustomers());
-
-        //  step 2. choose HTML template
-        return "customer";  // customer.html template
+        return "customer";
     }
 
     @PostMapping
