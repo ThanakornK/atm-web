@@ -38,9 +38,11 @@ public class BankAccountController {
 
     @PostMapping("/edit/{id}")
     public String editAccount(@PathVariable int id, @ModelAttribute BankAccount bankAccount, Model model) {
-        bankAccountService.editBankAccout(bankAccount);
+        bankAccountService.editBankAccount(bankAccount);
         model.addAttribute("bankaccounts",bankAccountService.getBankAccount());
         return "redirect:/bankaccount";
     }
+
+    
 
 }
